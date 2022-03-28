@@ -179,69 +179,6 @@ export const GET_EXPERIMENT_QUERY = gql`
   }
 `;
 
-export const GET_EXPERIMENTS_QUERY = gql`
-  query getAllExperiments {
-    experiments {
-      isArchived
-      name
-      owner {
-        username
-      }
-      featureConfigs {
-        id
-        slug
-        name
-        description
-        application
-        ownerEmail
-        schema
-      }
-      slug
-      application
-      firefoxMinVersion
-      firefoxMaxVersion
-      startDate
-      isEnrollmentPausePending
-      isEnrollmentPaused
-      proposedDuration
-      proposedEnrollment
-      computedEndDate
-      status
-      statusNext
-      publishStatus
-      monitoringDashboardUrl
-      resultsReady
-      featureConfig {
-        slug
-        name
-      }
-    }
-  }
-`;
-
-export const GET_REPORTING_QUERY = gql`
-  query getAllExperiments {
-    experiments {
-      application
-      name
-      owner {
-        username
-      }
-      featureConfigs {
-        name
-        application
-        ownerEmail
-      }
-      startDate
-      proposedDuration
-      computedEndDate
-      monitoringDashboardUrl
-      resultsReady
-      takeawaysSummary
-    }
-  }
-`;
-
 export const CLONE_EXPERIMENT_MUTATION = gql`
   mutation cloneExperiment($input: ExperimentCloneInput!) {
     cloneExperiment(input: $input) {

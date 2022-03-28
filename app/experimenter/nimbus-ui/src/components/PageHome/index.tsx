@@ -6,7 +6,6 @@ import { useQuery } from "@apollo/client";
 import { Link, RouteComponentProps } from "@reach/router";
 import React, { useCallback } from "react";
 import { Alert, Tab, Tabs } from "react-bootstrap";
-import { GET_EXPERIMENTS_QUERY } from "../../gql/experiments";
 import {
   useConfig,
   useRefetchOnError,
@@ -116,22 +115,19 @@ const PageHome: React.FunctionComponent<PageHomeProps> = () => {
         <h2 className="mb-0 mr-1">Nimbus Experiments </h2>
         <div>
           <Link
-            to="reporting"
-            data-sb-kind="pages/Reporting"
-            className="btn btn-primary btn-small ml-2"
-            id="reporting-button"
-          >
-            Reporting
-          </Link>
-        </div>
-        <div>
-          <Link
             to="new"
             data-sb-kind="pages/New"
             className="btn btn-primary btn-small ml-2"
             id="create-new-button"
           >
             Create new
+          </Link>
+          <Link
+            to="reporting-csv"
+            className="btn btn-seco btn-small ml-2"
+            id="reporting-csv-button"
+          >
+            Export to CSV
           </Link>
         </div>
       </div>
