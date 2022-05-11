@@ -2,6 +2,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+import Logger from "../../services/logger";
+
+import Button from "react-bootstrap/Button";
 import { useQuery } from "@apollo/client";
 import { Link, RouteComponentProps } from "@reach/router";
 import React, { useCallback } from "react";
@@ -16,6 +19,8 @@ import { getAllExperiments_experiments } from "../../types/getAllExperiments";
 import AppLayout from "../AppLayout";
 import Head from "../Head";
 import LinkExternal from "../LinkExternal";
+import { LinkNav } from "../LinkNav";
+import { ReactComponent as BookIcon } from "../../images/book.svg";
 import PageLoading from "../PageLoading";
 import DirectoryTable, {
   DirectoryCompleteTable,
@@ -107,6 +112,13 @@ export const Body = () => {
   );
 };
 
+const logger = new Logger()
+const onClick = () => { 
+  logger.error("Elise") 
+  // const data = getReportData()
+  // setState, bind
+}
+
 const PageHome: React.FunctionComponent<PageHomeProps> = () => {
   return (
     <AppLayout testid="PageHome">
@@ -115,6 +127,16 @@ const PageHome: React.FunctionComponent<PageHomeProps> = () => {
       <div className="d-flex mb-4 justify-content-between">
         <h2 className="mb-0 mr-1">Nimbus Experiments </h2>
         <div>
+          <Button
+            variant="secondary"
+            className="btn btn-secondary btn-small ml-2"
+            onClick={onClick}
+          >
+            <span role="img" aria-label="down arrow emoji">
+              ⬇️
+            </span>{" "}
+            Reporting
+          </Button>
           <Link
             to="new"
             data-sb-kind="pages/New"
